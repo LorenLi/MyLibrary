@@ -5,7 +5,7 @@ import android.widget.Toast;
 
 /**
  * @author: Loren
- * @create: 2016-7-5上午10:23:14
+ * @create: 2016-7-5上午10:23:50
  */
 public class ToastUtils {
     private static Toast toast = null; //Toast的对象！
@@ -16,7 +16,7 @@ public class ToastUtils {
      * @param id
      */
     public static void showToast(Context context, int id) {
-        if (toast == null) {
+         if (toast == null) {
             toast = Toast.makeText(context, id, Toast.LENGTH_SHORT);
         }
         else {
