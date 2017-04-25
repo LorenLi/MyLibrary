@@ -1,0 +1,16 @@
+1.Github上创建自己可compile的library
+参考http://blog.csdn.net/lib739449500/article/details/55261225
+每次发布添加新的功能必须发布release版本，并且要在https://jitpack.io get it，
+引用终点注意：在root gradle添加两处：
+   dependencies {
+        ......
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
+    }
+
+    allprojects {
+        repositories {
+            jcenter()
+            maven { url 'https://jitpack.io' }
+        }
+    }
+引用的时候添加最新的compile，重新同步项目
