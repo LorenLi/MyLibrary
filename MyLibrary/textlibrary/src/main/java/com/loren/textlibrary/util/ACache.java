@@ -451,6 +451,7 @@ public class ACache {
     public void put(String key, Bitmap value) {
         put(key, Utils.Bitmap2Bytes(value));
     }
+
     /**
      * 保存 bitmap 到 缓存中
      *
