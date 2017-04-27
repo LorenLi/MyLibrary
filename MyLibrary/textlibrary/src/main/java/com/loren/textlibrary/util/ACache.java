@@ -1,5 +1,17 @@
 package com.loren.textlibrary.util;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.PixelFormat;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.util.Log;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
@@ -20,18 +32,6 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.PixelFormat;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.util.Log;
 
 /**
  * @author: Loren
@@ -450,34 +450,6 @@ public class ACache {
      */
     public void put(String key, Bitmap value) {
         put(key, Utils.Bitmap2Bytes(value));
-    }
-
-    public void putPicFile(String key){
-    	File file = mCache.newFile(key);
-    	MyLog.e(TAG, "pit file:"+file.getName());
-    	if (file.exists()){
-    		MyLog.e(TAG, "put jpg/png file to acache filename="+key);
-    		mCache.put(file);
-    	}
-    }
-    
-    public Bitmap getBitmap(String key){
-    	File file = mCache.get(key);
-    	if (file == null) {
-    		MyLog.e(TAG, "get bitmap form file:"+key+" cache null");
-    		return null;
-    	}
-        if (!file.exists()) {
-        	MyLog.e(TAG, "get bitmap form file:"+file.getName()+" not exists");
-            return null;
-        }
-    	Bitmap bitmap = BtimapFile.getBitmapFromFile(file);
-    	if (bitmap == null){
-    		MyLog.e(TAG, "get bitmap form file:"+file.getName()+" error.So del it!!!!!");
-    		file.delete();
-    	}
-    	MyLog.e(TAG, "cache bitmap ="+bitmap);
-    	return bitmap;
     }
     /**
      * 保存 bitmap 到 缓存中
