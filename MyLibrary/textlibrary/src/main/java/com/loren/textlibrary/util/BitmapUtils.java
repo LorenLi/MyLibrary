@@ -58,15 +58,15 @@ import java.io.InputStream;
  *
  * @author jingle1267@163.com
  */
-final class BitmapUtil {
+final class BitmapUtils {
 
     private static final boolean DEBUG = false;
-    private static final String TAG = BitmapUtil.class.getSimpleName();
+    private static final String TAG = BitmapUtils.class.getSimpleName();
 
     /**
      * Don't let anyone instantiate this class.
      */
-    private BitmapUtil() {
+    private BitmapUtils() {
         throw new Error("Do not need instantiate!");
     }
 
