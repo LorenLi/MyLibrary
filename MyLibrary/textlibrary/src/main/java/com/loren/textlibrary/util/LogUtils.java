@@ -404,7 +404,7 @@ public class LogUtils {
         String output[] = new String[2];
         for (StackTraceElement ste : (new Throwable()).getStackTrace()) {
             //栈顶肯定是LogUtil这个类自己
-            if (LogUtils.class.getName().equals(ste.getClassName())) {
+            if ("MyLogUtils".equals(ste.getClassName())) {
                 continue;
             }
             //栈顶的下一个就是需要调用这个类的地方
@@ -429,7 +429,7 @@ public class LogUtils {
         String detailMessage = "";
         for (StackTraceElement ste : (new Throwable()).getStackTrace()) {
             //栈顶肯定是LogUtil这个类自己
-            if (LogUtils.class.getName().equals(ste.getClassName())) {
+            if ("MyLogUtils".equals(ste.getClassName())) {
                 continue;
             }
             //栈顶的下一个就是需要调用这个类的地方[此处取出类名和方法名还有行号]
