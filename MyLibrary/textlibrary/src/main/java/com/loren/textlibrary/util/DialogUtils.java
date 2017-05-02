@@ -104,6 +104,20 @@ public class DialogUtils {
     }
 
     /**
+     * 显示一个提示框
+     *
+     * @param context 上下文对象，最好给Activity，否则需要android.permission.SYSTEM_ALERT_WINDOW
+     * @param message 提示的消息
+     * @param confirmButton 确定按钮的名字
+     */
+    public static AlertDialog showPrompt(Context context, String message, String confirmButton) {
+        return showAlert(context, null, message, confirmButton, null, null,
+                null, null, null, null, true, null, null);
+    }
+
+    //************************************************************loren add...*****************************************************************
+
+    /**
      * 带输入框对话框
      *
      * @param context
@@ -129,24 +143,12 @@ public class DialogUtils {
     }
 
     /**
-     * 显示一个提示框
-     *
-     * @param context 上下文对象，最好给Activity，否则需要android.permission.SYSTEM_ALERT_WINDOW
-     * @param message 提示的消息
-     * @param confirmButton 确定按钮的名字
-     */
-    public static AlertDialog showPrompt(Context context, String message, String confirmButton) {
-        return showAlert(context, null, message, confirmButton, null, null,
-                null, null, null, null, true, null, null);
-    }
-
-    /**
      * 提示信息 选择-单选（尾部有单选框）
      *
      * @param clickListener
      *            确定事件
      */
-    public static void showDialogSelect(Context context, String items[],String cancelButton,
+    public static void showSingleDialog(Context context, String items[],String cancelButton,
                                         DialogInterface.OnClickListener clickListener) {
         AlertDialog.Builder adb = new AlertDialog.Builder(context);
         //adb.setTitle(R.string.dialog_select);
@@ -168,7 +170,7 @@ public class DialogUtils {
      * @param clickListener
      *            确定事件
      */
-    public static void showDialogSelect2(Context context, String items[],String cancelButton,
+    public static void showSingleDialogTip(Context context, String items[],String cancelButton,
                                          DialogInterface.OnClickListener clickListener) {
         AlertDialog.Builder adb = new AlertDialog.Builder(context);
         //adb.setTitle(R.string.dialog_select);
@@ -190,7 +192,7 @@ public class DialogUtils {
      * @param items
      *            确定事件
      */
-    public static void showDialog(Context context, String confirmButton,String items[]) {
+    public static void showMulDialogTip(Context context, String confirmButton,String items[]) {
         AlertDialog.Builder adb = new AlertDialog.Builder(context);
         //adb.setTitle(R.string.dialog_list_box);
         adb.setIcon(android.R.drawable.ic_dialog_info);
@@ -211,7 +213,7 @@ public class DialogUtils {
      * @param clickListener
      *            确定事件
      */
-    public static void showDialogs(Context context, String items[],boolean[] seleceted,String confirmButton,String cancelButton,DialogInterface.OnMultiChoiceClickListener onMultiChoiceClickListener,
+    public static void showMulDialog(Context context, String items[],boolean[] seleceted,String confirmButton,String cancelButton,DialogInterface.OnMultiChoiceClickListener onMultiChoiceClickListener,
                                    DialogInterface.OnClickListener clickListener) {
         AlertDialog.Builder adb = new AlertDialog.Builder(context);
         //adb.setTitle(R.string.dialog_select);
