@@ -141,7 +141,7 @@ public class DialogUtils {
     }
 
     /**
-     * 提示信息 选择-单选
+     * 提示信息 选择-单选（尾部有单选框）
      *
      * @param clickListener
      *            确定事件
@@ -163,7 +163,7 @@ public class DialogUtils {
     }
 
     /**
-     * 提示信息 选择-单选
+     * 提示信息 选择-单选（尾部没有单选框，用户提示信息建议不操作）
      *
      * @param clickListener
      *            确定事件
@@ -185,7 +185,7 @@ public class DialogUtils {
     }
 
     /**
-     * 提示信息 列表对话框
+     * 提示信息 列表对话框(尾部没有多选框，用户提示信息建议不操作)
      *
      * @param items
      *            确定事件
@@ -206,17 +206,17 @@ public class DialogUtils {
     }
 
     /**
-     * 提示信息 选择-多选
+     * 提示信息 选择-多选（尾部有多选框）
      *
      * @param clickListener
      *            确定事件
      */
-    public static void showDialogs(Context context, String items[],String confirmButton,String cancelButton,
+    public static void showDialogs(Context context, String items[],boolean[] seleceted,String confirmButton,String cancelButton,DialogInterface.OnMultiChoiceClickListener onMultiChoiceClickListener,
                                    DialogInterface.OnClickListener clickListener) {
         AlertDialog.Builder adb = new AlertDialog.Builder(context);
         //adb.setTitle(R.string.dialog_select);
         adb.setIcon(android.R.drawable.ic_dialog_info);
-        adb.setMultiChoiceItems(items, null, null);
+        adb.setMultiChoiceItems(items, seleceted, onMultiChoiceClickListener);
         adb.setPositiveButton(confirmButton, clickListener);
         adb.setNegativeButton(cancelButton, new DialogInterface.OnClickListener() {
             @Override
