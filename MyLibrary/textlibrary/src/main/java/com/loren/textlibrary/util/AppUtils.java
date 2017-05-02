@@ -564,4 +564,23 @@ public final class AppUtils {
         return diff;
     }
 
+    //*******************************************loren add...****************************************************************************
+    /**
+     * 获取所有的app包名
+     * @param context
+     * @return
+     */
+    public static ArrayList<String> getAppPackageName(Context context) {
+        PackageManager packageManager = context.getPackageManager();
+        ArrayList<String> resArrayList = new ArrayList<String>();
+        List<PackageInfo> list = packageManager
+                .getInstalledPackages(PackageManager.GET_PERMISSIONS);
+        for (PackageInfo packageInfo : list) {
+            ApplicationInfo applicationInfo = packageInfo.applicationInfo;
+            resArrayList.add(applicationInfo.packageName);
+
+        }
+        return resArrayList;
+    }
+
 }

@@ -18,6 +18,7 @@ package com.loren.textlibrary.util;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
@@ -251,6 +252,32 @@ public class DialogUtils {
         });
         adb.setCancelable(false);
         adb.show();
+    }
+
+    /**
+     * 设置全屏Dialog
+     * @param context
+     * @param dialog
+     */
+    public static void setDialogFullScreen(Context context, Dialog dialog) {
+        WindowManager.LayoutParams params = dialog.getWindow().getAttributes();
+        params.width = DensityUtil.getScreenWidth(context);
+        params.height = DensityUtil.getScreenHeight(context);
+        dialog.getWindow().setAttributes(params);
+    }
+
+    /**
+     * 设置指定尺寸大小Dialog
+     * @param context
+     * @param dialog
+     * @param with
+     * @param height
+     */
+    public static void setDialogSize(Context context, Dialog dialog,int with,int height) {
+        WindowManager.LayoutParams params = dialog.getWindow().getAttributes();
+        params.width = with;
+        params.height = height;
+        dialog.getWindow().setAttributes(params);
     }
 
 }
