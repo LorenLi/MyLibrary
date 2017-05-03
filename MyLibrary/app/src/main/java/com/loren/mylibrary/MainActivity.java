@@ -5,8 +5,6 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-import com.loren.mylibrary.util.LoopTimer;
-
 public class MainActivity extends AppCompatActivity {
     private TextView tv;
     @Override
@@ -24,11 +22,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         };
-
-        LoopTimer loopTimer = new LoopTimer(handler,runnable,100000);
-
-        loopTimer.start();
-
 
 
     }
