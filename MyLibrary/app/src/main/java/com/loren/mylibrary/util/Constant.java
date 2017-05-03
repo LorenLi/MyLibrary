@@ -5,15 +5,6 @@ package com.loren.mylibrary.util;
  */
 
 public class Constant {
-    /**
-     * Byte 分别转换为KB,MB,GB
-     */
-    public static final long BYTE_CONVERSION_KB = 1024;
-
-    public static final long BYTE_CONVERSION_MB = (1024*1024);
-
-    public static final long BYTE_CONVERSION_GB = (1024*1024*1024);
-
     /*
 	 * * UTF-8格式
 	 */
