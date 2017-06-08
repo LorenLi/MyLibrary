@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
+import com.loren.mylibrary.util.LogUtils;
+import com.loren.textlibrary.util.DensityUtil;
+
 public class MainActivity extends AppCompatActivity {
     private TextView tv;
     @Override
@@ -14,6 +17,14 @@ public class MainActivity extends AppCompatActivity {
         tv = (TextView) findViewById(R.id.tv);
 
 
+        int screenWidth = DensityUtil.getScreenWidth(this);
+        int screenHeight = DensityUtil.getScreenHeight(this);
+        int navagationHeight = DensityUtil.getNavigationBarHeight(this);
+
+
+        LogUtils.d("screenWidth : " + screenWidth);
+        LogUtils.d("screenHeight : " + screenHeight);
+        LogUtils.d("navagationHeight : " + navagationHeight);
 
     }
 }
